@@ -1,6 +1,6 @@
-import { app, BrowserWindow, Menu, ipcMain, dialog } from 'electron'
-import path from 'path'
-import { createClient } from 'redis'
+const { app, BrowserWindow, Menu, ipcMain, dialog } = require('electron')
+const path = require('path')
+const { createClient } = require('redis')
 
 // 确保应用程序是单例模式
 const gotTheLock = app.requestSingleInstanceLock()
