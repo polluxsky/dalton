@@ -1,0 +1,45 @@
+{
+  "name": "dalton",
+  "private": true,
+  "version": "0.0.0",
+  "main": "electron/main/index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron:dev": "electron .",
+    "electron:build": "vite build",
+    "electron:package": "PYTHON_PATH=/usr/local/opt/python@3.13/libexec/bin/python vite build && electron-builder"
+  },
+  "dependencies": {
+    "element-plus": "^2.2.0",
+    "redis": "^4.0.0",
+    "vue": "^3.2.20"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.0.0",
+    "electron": "^17.0.0",
+    "electron-builder": "^26.0.12",
+    "vite": "^2.7.0"
+  },
+  "build": {
+    "appId": "com.pollux.dalton",
+    "productName": "Dalton",
+    "directories": {
+      "output": "dist_electron",
+      "app": "."
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": "dmg"
+    },
+    "win": {
+      "target": "msi"
+    }
+  }
+}
